@@ -1,6 +1,7 @@
 //aqui debemos poner un arreglo con los elementos de la comida
 
 
+
 //{ id: 1, nombre: "Empanadas criollas", descripcion: "Tres empanadas con ají casero.", precio: 9000,  imagen: "img/empanadas.jpg", categoria: "entradas" },
 // Logica categorias
 const productos = [
@@ -18,7 +19,7 @@ const productos = [
         descripcion:"Pan,carne,lechuga,tomate",
         precio:20000,
         imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzZ6AD1YIgjNqNVS1C03eRFxVcCa8G-AtuAC-EwTyrmw&s=10",
-        categoria: "Hamburguesa.jpg"
+        categoria: "platos-fuertes"
     },
     {
         id: 3,

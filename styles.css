@@ -1,7 +1,38 @@
-:root {
-  --altura-navbar: 70px; /* ajústala a la altura real de tu navbar principal */
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --navegador-responsivo:#f4f3ef;
+}
+.contenedor-nav-haburguesa{display: none;}
+.barra-nav{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        background-color: var(--navegador-responsivo);
+}
+@media (max-width: 768px) {
+    .barra-nav{
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: auto;
+        background-color: var(--navegador-responsivo);
+    }
+    .contenedor-nav{
+        display: none;
+    }
+    .contenedor-nav-haburguesa{
+        position: fixed;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
+
+/* mini navbar categorias */
 .menu-categorias {
   
   top: var(--altura-navbar);   /* se pega justo debajo del navbar principal */
