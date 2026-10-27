@@ -7,24 +7,89 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
+    <script src="app.js" defer></script>
 </head>
-<body>
-    <header>
-        <nav><!--estrucutura del nav-->
-            <img src="" alt="">
+<body><header>
+    <nav class="barra-nav">
+
+        <!-- Estructura del nav -->
+
+        <!-- Menú hamburguesa -->
+        <div class="contenedor-nav-haburguesa">
+            <button type="button" aria-label="Abrir menú">
+                ☰
+            </button>
+
+            <div class="menu-hamburguesa">
+                <a href="#productos">Productos</a>
+                <a href="#contactanos">Contáctanos</a>
+                <a href="#sobreNosotros">Sobre nosotros</a>
+            </div>
+
+            <div class="carrito-icono">
+                <img src="" alt="Carrito de compras">
+                <span>0</span>
+            </div>
+        </div>
+
+        <!-- Logo -->
+        <a href="#" aria-label="Inicio">
+            <img src="" alt="Logo">
+        </a>
+
+        <!-- Barra de búsqueda -->
+         <div class="contenedor-barra-busqueda">
+             <form id="formularioBusqueda" role="search">
+                <input
+                    class="form-control"
+                    type="search"
+                    id="buscador"
+                    placeholder="¿Qué quieres comer?"
+                    aria-label="Buscar productos"
+                    aria-autocomplete="list"
+                    aria-controls="sugerencias"
+                    autocomplete="off"
+                >
+            </form>
+
+            <!-- Sugerencias del buscador -->
+            <div
+                id="sugerencias"
+                class="list-group sugerencias"
+            ></div>
+        </div>
+        
+
+        <!-- Navegación para dispositivos mayores a 768px -->
+        <div class="contenedor-nav">
             <a href="#productos">Productos</a>
-            <a href="#contactanos">contactanos</a><!--  <->   -->
+            <a href="#contactanos">Contáctanos</a>
             <a href="#sobreNosotros">Sobre nosotros</a>
-            
-            <img src="" alt=""></img>
-        </nav>
-    </header>
+
+            <div class="resumen-carrito">
+                <img src="" alt="" class="icono-carrito">
+                <span class="precio-carrito" id="precio-carrito">$0</span>
+                <span class="cantidad-carrito" id="cantidad-carrito-desktop">(0)</span>
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
     <main><!--slider galeria visual de un par de productos-->
 
     </main>
-    <section id="productos"><!-- plato fuerte[{},{},{}], entradas[{},{},{}], postres[{},{},{}].
-        se cargaran los elementos con JS del catalogo de productos tarjeticas-->
-
+    <section id="productos">
+        <div class="container">
+            <h2 class="text-center mb-4">Nuestro menú</h2>
+            <nav class="menu-categorias" aria-label="Categorías del menú">
+                <button type="button" class="btn-categoria active" data-categoria="todos">Todos</button>
+                <button type="button" class="btn-categoria" data-categoria="entrada">Entrada</button>
+                <button type="button" class="btn-categoria" data-categoria="platos-fuertes">Plato fuerte</button>
+                <button type="button" class="btn-categoria" data-categoria="postres">Postre</button>
+            </nav>
+            <div id="catalogo" class="row g-4 mt-2"></div>
+        </div>
     </section>
     <section id="contactanos"><!--formulario->Andres Florez-->
         <div class="texto-contacto">
@@ -109,10 +174,10 @@
 
                 <div class="footer-seccion">
                     <h2>Productos</h2>
-                    <a href="#productos">Todos</a>
-                    <a href="#productos">Entradas</a>
-                    <a href="#productos">Platos fuertes</a>
-                    <a href="#productos">Postres</a>
+                    <a href="#productos" class="enlace-categoria" data-categoria="todos">Todos</a>
+                    <a href="#productos" class="enlace-categoria" data-categoria="entrada">Entradas</a>
+                    <a href="#productos" class="enlace-categoria" data-categoria="platos-fuertes">Platos fuertes</a>
+                    <a href="#productos" class="enlace-categoria" data-categoria="postres">Postres</a>
                 </div>
 
                 <div class="footer-seccion">
@@ -129,6 +194,5 @@
 
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="app.js"></script>
 </body>
 </html>
