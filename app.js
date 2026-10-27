@@ -38,7 +38,7 @@ const productos = [
         nombre: "mini hamburguesas",
         descripcion: "hamburguesa mini con sabor gigante.",
         precio: 9000,
-        imagen: "img/miniH.jpg",
+        imagen: "img/minih.jpg",
         categoria: "entrada"
     },
     {
