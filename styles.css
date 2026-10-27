@@ -6,26 +6,185 @@
 :root{
     --navegador-responsivo:#f4f3ef;
 }
+/* estilos de NAV para  todas las versiones escritoro */
 .contenedor-nav-haburguesa{display: none;}
+.busqueda{display: none;}
 .barra-nav{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 0.5fr 0.5fr 1fr;
         background-color: var(--navegador-responsivo);
+        align-items: center;
+        justify-items: auto;
+        padding: 0 3%;
+       
 }
+.contenedor-nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap:2%;
+    padding: 1%;
+}
+
+
+
+/* Estilos del btn para compras */
+.resumen-carrito {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background-color: #1e1e1e;
+    color: white;
+
+    padding: 10px 20px;
+    border-radius: 50px;
+
+    width: fit-content;
+    min-width: max-content;
+}
+
+.icono-carrito {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.precio-carrito,
+.cantidad-carrito {
+    font-size: 22px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
 @media (max-width: 768px) {
+    .contenedor-nav,#img-nav,.contenedor-barra-busqueda{
+        display: none;
+    
+    }
+    /*aqui se cambia el estilo del display para que se muestre el nuevo menu*/
     .barra-nav{
         display: grid;
-        grid-template-rows: auto auto;
-        grid-template-columns: auto;
-        background-color: var(--navegador-responsivo);
-    }
-    .contenedor-nav{
-        display: none;
+        grid-template-areas: "superior superior"
+        "busqueda busqueda";
     }
     .contenedor-nav-haburguesa{
-        position: fixed;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        
+        min-width: 95vw;
+        grid-area: superior;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
+    .busqueda{
+        display: flex;
+        grid-area: busqueda;
+        justify-content: center;
+        margin: 3% 0;
+        
+    }
+    /* estilo del carrito */
+    .carrito-icono {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carrito-icono img {
+        width: 35px;
+        height: 35px;
+        object-fit: contain;
+    }
+
+    .carrito-icono span {
+        position: absolute;
+        top: -7px;
+        right: -7px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #1e1e1e;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    /* estilo del menu hamburguesa */
+    .contenedor-nav-hamburguesa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 12px 20px;
+}
+
+/* Botón hamburguesa */
+    .btn-hamburguesa {
+        font-size: 28px;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+    }
+
+    /* Menú oculto inicialmente */
+    .menu-hamburguesa {
+        display: none;
+        flex-direction: column;
+        gap: 16px;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        padding: 20px;
+        min-width: 220px;
+        background: white;
+        box-shadow: 0 6px 15px #0002;
+        z-index: 100;
+    }
+
+    /* Menú desplegado */
+    .menu-hamburguesa.abierto {
+        display: flex;
+    }
+
+    .menu-hamburguesa a {
+        text-decoration: none;
+        color: #222;
+    }
+
+    /* Icono del carrito */
+    .carrito-icono {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .carrito-icono img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .carrito-icono span {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+
+        background: #222;
+        color: white;
+        border-radius: 50%;
+        min-width: 22px;
+        height: 22px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
+    
 }
 
