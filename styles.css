@@ -1,0 +1,16 @@
+:root {
+  --altura-navbar: 70px; /* ajústala a la altura real de tu navbar principal */
+}
+
+.menu-categorias {
+  
+  top: var(--altura-navbar);   /* se pega justo debajo del navbar principal */
+  z-index: 1000;               /* por debajo del navbar principal, que debe tener mayor z-index */
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0.75rem;
+  background-color: #fff;      /* sin fondo, las tarjetas se verían a través del menú */
+  border-bottom: 1px solid #ddd;
+}
