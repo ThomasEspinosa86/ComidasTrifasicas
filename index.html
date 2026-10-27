@@ -8,60 +8,73 @@
     <title>Document</title>
     <script src="app.js" defer></script>
 </head>
-<body>
-    <header>
-        <nav class="barra-nav"><!--estrucutura del nav-->
-            <!--menu hamburguesa-->
-            <div class="contenedor-nav-haburguesa">
-                <button>
-                    ☰
-                </button>
-                <div class="menu-hamburguesa">    
-                    <a href="#productos">Productos</a>
-                    <a href="#contactanos">contactanos</a><!--  <->   -->
-                    <a href="#sobreNosotros">Sobre nosotros</a>
-                </div>
-                <div class="carrito-icono">
-                    <img src="" alt="Carrito de compras">
-                    <span id="cantidad-carrito">0</span>
-                </div>
-            </div>
-            <!--Nav para dispositivos mayores a un width: 768px-->
-            <img src="" alt="logo">
-           
-            <div class="contenedor-nav">
-                <a href="#productos">Productos</a>
-                <a href="#contactanos">contactanos</a><!--  <->   -->
-                <a href="#sobreNosotros">Sobre nosotros</a>
-                <div class="resumen-carrito">
-                    <img src="" alt="" class="icono-carrito">
-                    <span class="precio-carrito" id="precio-carrito">$0.00</span>
-                    <span class="cantidad-carrito" id="cantidad-carrito">(0)</span>
-                </div>
-            </div>
-             <div class="contenedor-barra-busqueda">
-    <search>
-        <form id="formularioBusqueda" role="search">
-            <input
-                class="form-control"
-                type="search"
-                id="buscador"
-                placeholder="Buscar productos..."
-                aria-label="Buscar productos"
-                aria-autocomplete="list"
-                aria-controls="sugerencias"
-                autocomplete="off"
-            >
-        </form>
+<body><header>
+    <nav class="barra-nav">
 
-        <div
-            id="sugerencias"
-            class="list-group sugerencias"
-        ></div>
-    </search>
-</div>
-        </nav>
-    </header>
+        <!-- Estructura del nav -->
+
+        <!-- Menú hamburguesa -->
+        <div class="contenedor-nav-haburguesa">
+            <button type="button" aria-label="Abrir menú">
+                ☰
+            </button>
+
+            <div class="menu-hamburguesa">
+                <a href="#productos">Productos</a>
+                <a href="#contactanos">Contáctanos</a>
+                <a href="#sobreNosotros">Sobre nosotros</a>
+            </div>
+
+            <div class="carrito-icono">
+                <img src="" alt="Carrito de compras">
+                <span>0</span>
+            </div>
+        </div>
+
+        <!-- Logo -->
+        <a href="#" aria-label="Inicio">
+            <img src="" alt="Logo">
+        </a>
+
+        <!-- Barra de búsqueda -->
+         <div class="contenedor-barra-busqueda">
+             <form id="formularioBusqueda" role="search">
+                <input
+                    class="form-control"
+                    type="search"
+                    id="buscador"
+                    placeholder="¿Qué quieres comer?"
+                    aria-label="Buscar productos"
+                    aria-autocomplete="list"
+                    aria-controls="sugerencias"
+                    autocomplete="off"
+                >
+            </form>
+
+            <!-- Sugerencias del buscador -->
+            <div
+                id="sugerencias"
+                class="list-group sugerencias"
+            ></div>
+        </div>
+        
+
+        <!-- Navegación para dispositivos mayores a 768px -->
+        <div class="contenedor-nav">
+            <a href="#productos">Productos</a>
+            <a href="#contactanos">Contáctanos</a>
+            <a href="#sobreNosotros">Sobre nosotros</a>
+
+            <div class="resumen-carrito">
+                <img src="" alt="" class="icono-carrito">
+                <span class="precio-carrito" id="precio-carrito">$0</span>
+                <span class="cantidad-carrito" id="cantidad-carrito-desktop">(0)</span>
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
     <main><!--slider galeria visual de un par de productos-->
 
     </main>
