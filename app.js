@@ -1,5 +1,4 @@
 
-//aqui debemos poner un arreglo con los elementos de la comida
 // Arreglo de productos
 const productos = [
     {
@@ -165,6 +164,9 @@ formulario.addEventListener("submit", function (evento) {
 // Dom
 const contenedorCatalogo = document.getElementById("catalogo");
 const botonesCategoria = document.querySelectorAll(".btn-categoria");
+const controlesCategoria = document.querySelectorAll(
+    ".btn-categoria, .enlace-categoria"
+);
 const textosPrecioCarrito = document.querySelectorAll(".precio-carrito");
 const textosCantidadCarrito = document.querySelectorAll(".cantidad-carrito");
 
@@ -235,15 +237,26 @@ function marcarCategoriaActiva(botonSeleccionado) {
         boton.classList.remove("active");
     });
 
-    botonSeleccionado.classList.add("active");
+    const boton = document.querySelector(
+        `.btn-categoria[data-categoria="${botonSeleccionado.dataset.categoria}"]`
+    );
+
+    if (boton) {
+        boton.classList.add("active");
+    }
 }
 
 
 // EVENTOS
-botonesCategoria.forEach(boton => {
-    boton.addEventListener("click", () => {
-        marcarCategoriaActiva(boton);
-        renderizarCatalogo(boton.dataset.categoria);
+controlesCategoria.forEach(control => {
+    control.addEventListener("click", evento => {
+        evento.preventDefault();
+        marcarCategoriaActiva(control);
+        renderizarCatalogo(control.dataset.categoria);
+        document.getElementById("productos").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
     });
 });
 
@@ -261,6 +274,7 @@ function agregarAlCarrito(idProducto) {
     }
 
     actualizarResumenCarrito();
+
 }
 
 function calcularCantidadTotal() {
@@ -291,3 +305,53 @@ contenedorCatalogo.addEventListener("click", (evento) => {
 });
 
 actualizarResumenCarrito();
+
+// Validacion y envio del formulario de contacto
+const form = document.getElementById("form-contacto");
+const aviso = document.getElementById("aviso");
+
+if (form) {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        if (!form.checkValidity()) {
+            form.classList.add("was-validated");
+            return;
+        }
+
+        const boton = form.querySelector('button[type="submit"]');
+        boton.disabled = true;
+        boton.textContent = "Enviando...";
+
+        try {
+            const respuesta = await fetch(form.action, {
+                method: "POST",
+                body: new FormData(form),
+                headers: {
+                    Accept: "application/json"
+                }
+            });
+
+            if (!respuesta.ok) {
+                throw new Error("No se pudo enviar el formulario");
+            }
+
+            aviso.textContent =
+                "¡Gracias! Recibimos tu mensaje y te responderemos pronto.";
+            aviso.classList.remove("d-none", "alert-danger");
+            aviso.classList.add("alert-success");
+
+            form.reset();
+            form.classList.remove("was-validated");
+        } catch (error) {
+            aviso.textContent =
+                "No se pudo enviar el mensaje. Inténtalo de nuevo.";
+            aviso.classList.remove("d-none", "alert-success");
+            aviso.classList.add("alert-danger");
+            console.error("Error al enviar el formulario:", error);
+        } finally {
+            boton.disabled = false;
+            boton.textContent = "Enviar mensaje";
+        }
+    });
+}

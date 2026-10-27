@@ -1,5 +1,125 @@
+/* Texto contacto */
+.texto-contacto {
+    text-align: center;
+}
 
+/* Tarjeta del formulario */
+.formulario-contacto {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.formulario-contacto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+/* Boton de contacto */
+.btn-contacto {
+    background-color: #C66D42;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+}
+/* efecto para el cursor */
+.btn-contacto:hover {
+    background-color: #A95631;
+    color: #ffffff;
+}
+
+/* AJustes a pantallas pequeñas */
+@media (max-width: 576px) {
+    .formulario-contacto {
+        padding: 20px;
+    }
+}
+
+/* Footer o pie de pagina */
+.footer-pagina {
+    background-color: #E8D5C4;
+    color: #333333;
+    margin-top: 48px;
+    padding: 48px 24px;
+}
+
+.footer-contenido {
+    display: grid;
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+    gap: 40px;
+    padding-bottom: 32px;
+}
+
+.footer-marca {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.footer-logo {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.footer-marca p,
+.footer-derechos {
+    margin: 0;
+    color: #666666;
+    font-size: 14px;
+}
+
+.footer-seccion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-seccion h2 {
+    margin: 0 0 2px;
+    color: #333333;
+    font-size: 17px;
+}
+
+.footer-seccion a {
+    color: #333333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-seccion a:hover {
+    color: #C66D42;
+}
+
+.footer-derechos {
+    border-top: 1px solid #242424;
+    padding-top: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .footer-contenido {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-contenido {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
 *{
     padding: 0;
     margin: 0;

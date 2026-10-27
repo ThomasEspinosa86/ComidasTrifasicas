@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
     <script src="app.js" defer></script>
 </head>
@@ -78,30 +79,120 @@
     <main><!--slider galeria visual de un par de productos-->
 
     </main>
-    
     <section id="productos">
-  <div class="container">
-    <h2 class="text-center mb-4">Nuestro menú</h2>
+        <div class="container">
+            <h2 class="text-center mb-4">Nuestro menú</h2>
+            <nav class="menu-categorias" aria-label="Categorías del menú">
+                <button type="button" class="btn-categoria active" data-categoria="todos">Todos</button>
+                <button type="button" class="btn-categoria" data-categoria="entrada">Entrada</button>
+                <button type="button" class="btn-categoria" data-categoria="platos-fuertes">Plato fuerte</button>
+                <button type="button" class="btn-categoria" data-categoria="postres">Postre</button>
+            </nav>
+            <div id="catalogo" class="row g-4 mt-2"></div>
+        </div>
+    </section>
+    <section id="contactanos"><!--formulario->Andres Florez-->
+        <div class="texto-contacto">
+            <h2>Contáctanos</h2>
+            <p>
+                ¿Tienes alguna pregunta o necesitas ayuda? Escríbenos y nuestro
+                equipo te responderá lo antes posible.
+            </p>
+        </div>
+        <form id="form-contacto" class="needs-validation formulario-contacto" action="https://formspree.io/f/mvkkadrv" novalidate>
+            <!-- Div de nombre completo -->
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                <div class="invalid-feedback">Por favor, ingresa tu nombre completo</div>
+            </div>
 
-    <nav class="menu-categorias" aria-label="Categorías del menú">
-      <button class="btn-categoria active" data-categoria="todos">Todos</button>
-      <button class="btn-categoria" data-categoria="entrada">Entrada</button>
-      <button class="btn-categoria" data-categoria="platos-fuertes">Platofuerte</button>
-      <button class="btn-categoria" data-categoria="postres">Postre</button>
-    </nav>
+            <!-- Div de correo electronico -->
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo electronico</label>
+                <input type="email" class="form-control" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+                <div class="invalid-feedback">Por favor, ingresa tu correo electronico</div>
+            </div>
 
-    <div id="catalogo" class="row g-4 mt-2"></div>
-  </div>
-</section>
-    <section id="contactanos"><!--formulario-->
+            <!-- Div de Numero de contacto -->
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Numero de contacto</label>
+                <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Tu numero de telefono" required>
+                <div class="invalid-feedback">Por favor, ingresa tu numero de contacto</div>
+            </div>
 
-        <form action=""></form>
+            <!-- Div de Motivo de contacto con sus opciones -->
+            <div class="mb-3">
+                <label for="motivo" class="form-label">Motivo de contacto</label>
+                <select class="form-select" name="motivo" id="motivo" required>
+                    <option value="" selected disabled>Seleciona un motivo</option>
+                    <option value="informacion">Informacion general</option>
+                    <option value="problemas">Problemas con la plataforma</option>
+                    <option value="cuenta">Ayudo con mi cuenta</option>
+                    <option value="negocios">Informacion para restaurantes o negocios</option>
+                    <option value="otros">Otros</option>
+                </select>
+                <div class="invalid-feedback">Por favor, selecciona un motivo de contacto</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Cuentanos en que podemos ayudarte" required></textarea>
+                <div class="invalid-feedback">Por favor, ingresa tu mensaje</div>
+            </div>
+
+            <!-- Div de politica de datos-->
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="politica" name="politica" required>
+                <label class="form-check-label" for="politica">
+                    Acepto la politica de tratamiento de datos personales.
+                </label>
+                <div class="invalid-feedback">Por favor, acepta la politica de tratamiento de datos</div>
+            </div>
+            <button type="submit" class="btn btn-contacto">
+                Enviar mensaje
+            </button>
+            <div id="aviso" class="alert d-none mt-4" role="alert"></div>
+        </form>
     </section>
     <section id="sobreNosotros"></section>
-    <footer><!-- aqui puedes poner una lista y si queres img dentro de la lista podes hacerlo-->
+    <!--Footer Andres-Florez -->
+    <footer class="footer-pagina"><!-- aqui puedes poner una lista y si queres img dentro de la lista podes hacerlo-->
+        <div class="container">
+            <div class="footer-contenido">
+                <div class="footer-marca">
+                    <span class="footer-logo">CT</span>
+                    <p>&copy; 2026 Comidas Trifásicas.</p>
+                </div>
+
+                <div class="footer-seccion">
+                    <h2>Navegación</h2>
+                    <a href="#productos">Productos</a>
+                    <a href="#contactanos">Contáctanos</a>
+                    <a href="#sobreNosotros">Sobre nosotros</a>
+                </div>
+
+                <div class="footer-seccion">
+                    <h2>Productos</h2>
+                    <a href="#productos" class="enlace-categoria" data-categoria="todos">Todos</a>
+                    <a href="#productos" class="enlace-categoria" data-categoria="entrada">Entradas</a>
+                    <a href="#productos" class="enlace-categoria" data-categoria="platos-fuertes">Platos fuertes</a>
+                    <a href="#productos" class="enlace-categoria" data-categoria="postres">Postres</a>
+                </div>
+
+                <div class="footer-seccion">
+                    <h2>Contacto</h2>
+                    <a href="#contactanos">Escríbenos</a>
+                    <a href="#contactanos">Pide información</a>
+                </div>
+            </div>
+
+            <p class="footer-derechos">
+                Todos los derechos reservados.
+            </p>
+        </div>
 
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/app.js" defer></script>
 </body>
 </html>
