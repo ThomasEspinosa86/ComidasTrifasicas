@@ -9,67 +9,50 @@
     <title>Document</title>
     <script src="app.js" defer></script>
 </head>
-<body><header>
-    <nav class="barra-nav">
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-comidas">
+        <div class="container-fluid px-3">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#" aria-label="Inicio">
+                <span class="logo-comidas">CT</span>
+                <span>Comidas<br>Trifásicas</span>
+            </a>
 
-        <!-- Estructura del nav -->
-
-        <!-- Menú hamburguesa -->
-        <div class="contenedor-nav-haburguesa">
-            <button type="button" aria-label="Abrir menú">
-                ☰
-            </button>
-
-            <div class="menu-hamburguesa">
-                <a href="#productos">Productos</a>
-                <a href="#contactanos">Contáctanos</a>
-                <a href="#sobreNosotros">Sobre nosotros</a>
+            <div class="d-flex align-items-center gap-2 order-lg-3">
+                <button type="button" class="resumen-carrito d-flex align-items-center gap-1"
+                    aria-label="Abrir carrito de compras">
+                    <i class="bi bi-cart3 fs-4" aria-hidden="true"></i>
+                    <span class="precio-carrito" id="precio-carrito">$0</span>
+                    <span class="cantidad-carrito" id="cantidad-carrito-desktop">(0)</span>
+                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal" aria-controls="menuPrincipal"
+                    aria-expanded="false" aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
 
-            <div class="carrito-icono">
-                <img src="" alt="Carrito de compras">
-                <span>0</span>
-            </div>
-        </div>
+            <div class="collapse navbar-collapse order-lg-2" id="menuPrincipal">
+                <div class="contenedor-barra-busqueda mx-lg-4 my-3 my-lg-0 flex-grow-1">
+                    <form id="formularioBusqueda" class="d-flex" role="search">
+                        <input class="form-control" type="search" id="buscador"
+                            placeholder="¿Qué quieres comer?" aria-label="Buscar productos"
+                            aria-autocomplete="list" aria-controls="sugerencias" autocomplete="off">
+                    </form>
+                    <div id="sugerencias" class="list-group sugerencias"></div>
+                </div>
 
-        <!-- Logo -->
-        <a href="#" aria-label="Inicio">
-            <img src="" alt="Logo">
-        </a>
-
-        <!-- Barra de búsqueda -->
-         <div class="contenedor-barra-busqueda">
-             <form id="formularioBusqueda" role="search">
-                <input
-                    class="form-control"
-                    type="search"
-                    id="buscador"
-                    placeholder="¿Qué quieres comer?"
-                    aria-label="Buscar productos"
-                    aria-autocomplete="list"
-                    aria-controls="sugerencias"
-                    autocomplete="off"
-                >
-            </form>
-
-            <!-- Sugerencias del buscador -->
-            <div
-                id="sugerencias"
-                class="list-group sugerencias"
-            ></div>
-        </div>
-        
-
-        <!-- Navegación para dispositivos mayores a 768px -->
-        <div class="contenedor-nav">
-            <a href="#productos">Productos</a>
-            <a href="#contactanos">Contáctanos</a>
-            <a href="#sobreNosotros">Sobre nosotros</a>
-
-            <div class="resumen-carrito">
-                <img src="" alt="" class="icono-carrito">
-                <span class="precio-carrito" id="precio-carrito">$0</span>
-                <span class="cantidad-carrito" id="cantidad-carrito-desktop">(0)</span>
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contactanos">Contáctanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobreNosotros">Sobre nosotros</a>
+                    </li>
+                </ul>
             </div>
         </div>
 
@@ -156,6 +139,20 @@
         </form>
     </section>
     <section id="sobreNosotros"></section>
+    <aside class="offcanvas offcanvas-end" tabindex="-1" id="panelCarrito"
+        aria-labelledby="tituloCarrito">
+        <div class="offcanvas-header">
+            <h2 class="offcanvas-title h5" id="tituloCarrito">Tu carrito</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                aria-label="Cerrar carrito"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <ul id="lista-carrito" class="list-unstyled mb-4"></ul>
+            <button type="button" id="btn-vaciar" class="btn btn-outline-danger mt-auto">
+                Vaciar carrito
+            </button>
+        </div>
+    </aside>
     <!--Footer Andres-Florez -->
     <footer class="footer-pagina"><!-- aqui puedes poner una lista y si queres img dentro de la lista podes hacerlo-->
         <div class="container">

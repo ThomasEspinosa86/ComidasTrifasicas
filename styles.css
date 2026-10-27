@@ -138,6 +138,7 @@
 
 .contenedor-barra-busqueda {
     position: relative;
+    max-width: 420px;
 }
 
 .sugerencias {
@@ -200,16 +201,37 @@
 
 /* mini navbar categorias */
 .menu-categorias {
-  
   top: var(--altura-navbar);   /* se pega justo debajo del navbar principal */
   z-index: 1000;               /* por debajo del navbar principal, que debe tener mayor z-index */
   display: flex;
-  gap: 0.5rem;
+  gap: 7px;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 0.75rem;
-  background-color: #fff;      /* sin fondo, las tarjetas se verían a través del menú */
+  padding: 12px 0;
+  background-color: #fff;
   border-bottom: 1px solid #ddd;
+}
+
+.btn-categoria {
+    padding: 8px 11px;
+    border: 0;
+    border-radius: 999px;
+    color: #111111;
+    background-color: #ead8c7;
+    font: inherit;
+    line-height: 1.2;
+    cursor: pointer;
+}
+
+.btn-categoria:hover,
+.btn-categoria:focus-visible {
+    color: #111111;
+    background-color: #dfc5ae;
+}
+
+.btn-categoria.active {
+    color: #111111;
+    background-color: #ead8c7;
 }
 
 .tarjeta-producto {
@@ -252,4 +274,302 @@
     border-radius: 8px;
     font-weight: 500;
     padding: 10px;
+}
+
+/* Navbar principal */
+.navbar-comidas {
+    background-color: var(--navegador-responsivo);
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.logo-comidas {
+    display: grid;
+    width: 50px;
+    height: 50px;
+    place-items: center;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    color: #333333;
+    font-weight: 700;
+}
+
+.navbar-comidas .navbar-brand {
+    color: #333333;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.navbar-comidas .resumen-carrito {
+    min-height: 48px;
+    border: 0;
+    border-radius: 999px;
+    background-color: #222222;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.navbar-comidas .resumen-carrito:hover,
+.navbar-comidas .resumen-carrito:focus-visible {
+    background-color: #3a3a3a;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.navbar-comidas .resumen-carrito:focus-visible {
+    outline: 3px solid rgba(198, 109, 66, 0.35);
+    outline-offset: 3px;
+}
+
+.navbar-comidas .resumen-carrito .bi-cart3 {
+    font-size: 1.3rem !important;
+    color: #c66d42;
+}
+
+.navbar-comidas .precio-carrito,
+.navbar-comidas .cantidad-carrito {
+    color: #ffffff;
+}
+
+.navbar-comidas .precio-carrito {
+    margin-left: 3px;
+}
+
+.navbar-comidas .cantidad-carrito {
+    margin-left: 2px;
+}
+
+.navbar-comidas .navbar-toggler {
+    border-color: rgba(51, 51, 51, 0.45);
+}
+
+.navbar-comidas .nav-link {
+    color: #333333;
+}
+
+.navbar-comidas .nav-link:hover,
+.navbar-comidas .nav-link:focus {
+    color: #C66D42;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-comidas .navbar-collapse {
+        padding: 12px 0 4px;
+    }
+
+    .navbar-comidas .navbar-nav {
+        gap: 8px;
+    }
+
+    .navbar-comidas .nav-link {
+        border-radius: 24px;
+        background-color: #ffffff;
+        padding: 12px 16px;
+        text-align: center;
+    }
+
+    .navbar-comidas .contenedor-barra-busqueda {
+        max-width: none;
+        margin-bottom: 12px;
+    }
+}
+
+/* Panel del carrito */
+#panelCarrito {
+    width: min(520px, 100%);
+    border: 0;
+    background: #f7f4ef;
+}
+
+#panelCarrito .offcanvas-header {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid #e8dfd5;
+    background: #ffffff;
+}
+
+#panelCarrito .offcanvas-title {
+    margin: 0;
+    color: #333333;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+#panelCarrito .btn-close {
+    padding: 12px;
+    border-radius: 50%;
+    background-color: #f3eee8;
+    opacity: 1;
+}
+
+#panelCarrito .btn-close:hover {
+    background-color: #eadfd4;
+}
+
+#panelCarrito .offcanvas-body {
+    gap: 18px;
+    padding: 24px 28px 28px;
+    background-color: #f7f4ef;
+}
+
+#lista-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.item-carrito {
+    display: grid !important;
+    grid-template-columns: 88px minmax(0, 1fr) auto;
+    align-items: center !important;
+    gap: 16px !important;
+    margin: 0 !important;
+    padding: 16px;
+    border: 1px solid #e7ddd3;
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 18px rgba(81, 57, 39, 0.08);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.item-carrito:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 22px rgba(81, 57, 39, 0.12);
+}
+
+.imagen-carrito {
+    width: 88px;
+    height: 88px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.item-carrito > div {
+    min-width: 0;
+}
+
+.item-carrito .fw-semibold {
+    overflow: hidden;
+    margin-bottom: 4px !important;
+    color: #333333;
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item-carrito .text-muted {
+    color: #c66d42 !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.item-carrito > div > .d-flex {
+    width: fit-content;
+    margin-top: 12px !important;
+    padding: 3px;
+    border: 1px solid #e8dfd5;
+    border-radius: 9px;
+    background-color: #faf8f5;
+}
+
+.item-carrito > div > .d-flex span {
+    min-width: 24px;
+    color: #333333;
+    font-weight: 700;
+    text-align: center;
+}
+
+.item-carrito .btn {
+    min-width: 30px;
+    min-height: 30px;
+    padding: 2px 8px;
+    border: 0;
+    border-radius: 7px;
+    font-weight: 700;
+}
+
+.item-carrito .btn-outline-secondary {
+    color: #333333;
+    background-color: transparent;
+}
+
+.item-carrito .btn-outline-secondary:hover {
+    color: #ffffff;
+    background-color: #c66d42;
+}
+
+.item-carrito .btn-outline-danger {
+    min-width: 38px;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid #e8c9c3;
+    border-radius: 9px;
+    color: #b94a48;
+    background-color: #fff8f7;
+}
+
+.item-carrito .btn-outline-danger i {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.item-carrito .btn-outline-danger:hover {
+    color: #ffffff;
+    border-color: #b94a48;
+    background-color: #b94a48;
+}
+
+#lista-carrito > .text-muted {
+    padding: 42px 20px;
+    border: 1px dashed #d8c8ba;
+    border-radius: 16px;
+    color: #76695f !important;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+#btn-vaciar {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #d6aaa2;
+    border-radius: 10px;
+    color: #b94a48;
+    background-color: #ffffff;
+    font-weight: 600;
+    transition: color 160ms ease, background-color 160ms ease;
+}
+
+#btn-vaciar:hover {
+    color: #ffffff;
+    background-color: #b94a48;
+}
+
+@media (max-width: 575.98px) {
+    #panelCarrito .offcanvas-header {
+        padding: 20px 18px 16px;
+    }
+
+    #panelCarrito .offcanvas-body {
+        padding: 18px;
+    }
+
+    .item-carrito {
+        grid-template-columns: 70px minmax(0, 1fr) auto;
+        gap: 11px !important;
+        padding: 12px;
+    }
+
+    .imagen-carrito {
+        width: 70px;
+        height: 70px;
+    }
 }
