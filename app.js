@@ -75,6 +75,7 @@ const productos = [
         categoria: "postres"
     }
 ];
+let carrito = [];
 
 
 // Elementos del buscador
@@ -164,7 +165,8 @@ formulario.addEventListener("submit", function (evento) {
 // Dom
 const contenedorCatalogo = document.getElementById("catalogo");
 const botonesCategoria = document.querySelectorAll(".btn-categoria");
-
+const textosPrecioCarrito = document.querySelectorAll(".precio-carrito");
+const textosCantidadCarrito = document.querySelectorAll(".cantidad-carrito");
 
 //Funciones
 
@@ -245,6 +247,47 @@ botonesCategoria.forEach(boton => {
     });
 });
 
-
 // Mostrar el catálogo al cargar la página
 renderizarCatalogo();
+
+// ===== FUNCIONES DEL CARRITO =====
+function agregarAlCarrito(idProducto) {
+    const itemExistente = carrito.find((item) => item.id === idProducto);
+
+    if (itemExistente) {
+        itemExistente.cantidad++;
+    } else {
+        carrito.push({ id: idProducto, cantidad: 1 });
+    }
+
+    actualizarResumenCarrito();
+}
+
+function calcularCantidadTotal() {
+    return carrito.reduce((total, item) => total + item.cantidad, 0);
+}
+
+function calcularPrecioTotal() {
+    return carrito.reduce((total, item) => {
+        const producto = productos.find((p) => p.id === item.id);
+        return total + producto.precio * item.cantidad;
+    }, 0);
+}
+
+function actualizarResumenCarrito() {
+    const cantidad = calcularCantidadTotal();
+    const precio = calcularPrecioTotal().toLocaleString("es-CO");
+
+    textosCantidadCarrito.forEach((elemento) => elemento.textContent = cantidad);
+    textosPrecioCarrito.forEach((elemento) => elemento.textContent = `$${precio}`);
+}
+
+// Un solo listener para todos los botones "Agregar al carrito"
+contenedorCatalogo.addEventListener("click", (evento) => {
+    const botonAgregar = evento.target.closest("button[data-id]");
+    if (!botonAgregar) return;
+
+    agregarAlCarrito(Number(botonAgregar.dataset.id));
+});
+
+actualizarResumenCarrito();
