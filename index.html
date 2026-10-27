@@ -4,25 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <header>
-        <nav><!--estrucutura del nav-->
-            <img src="" alt="">
-            <a href="#productos">Productos</a>
-            <a href="#contactanos">contactanos</a><!--  <->   -->
-            <a href="#sobreNosotros">Sobre nosotros</a>
-            
-            <img src="" alt=""></img>
-        </nav>
-       <div class="container my-4">
-    <div class="buscador-contenedor">
+        <nav class="barra-nav"><!--estrucutura del nav-->
+            <!--menu hamburguesa-->
+            <div class="contenedor-nav-haburguesa">
+                <button>
+                    ☰
+                </button>
+                <div class="menu-hamburguesa">    
+                    <a href="#productos">Productos</a>
+                    <a href="#contactanos">contactanos</a><!--  <->   -->
+                    <a href="#sobreNosotros">Sobre nosotros</a>
+                </div>
+                <div class="carrito-icono">
+                    <img src="" alt="Carrito de compras">
+                    <span id="cantidad-carrito">0</span>
+                </div>
+            </div>
+            <!--Nav para dispositivos mayores a un width: 768px-->
+            <img src="" alt="logo">
+            <div class="contenedor-barra-busqueda">
+    <search>
         <form id="formularioBusqueda" role="search">
-            
-
             <input
                 class="form-control"
                 type="search"
@@ -35,12 +42,24 @@
             >
         </form>
 
-                <div
-                    id="sugerencias"
-                    class="list-group sugerencias"
-                ></div>
+        <div
+            id="sugerencias"
+            class="list-group sugerencias"
+        ></div>
+    </search>
+</div>
+            <div class="contenedor-nav">
+                <a href="#productos">Productos</a>
+                <a href="#contactanos">contactanos</a><!--  <->   -->
+                <a href="#sobreNosotros">Sobre nosotros</a>
+                <div class="resumen-carrito">
+                    <img src="" alt="" class="icono-carrito">
+                    <span class="precio-carrito" id="precio-carrito">$0.00</span>
+                    <span class="cantidad-carrito" id="cantidad-carrito">(0)</span>
+                </div>
             </div>
-        </div>
+            
+        </nav>
     </header>
     <main><!--slider galeria visual de un par de productos-->
 
