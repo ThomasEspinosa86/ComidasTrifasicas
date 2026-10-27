@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
@@ -17,6 +18,29 @@
             
             <img src="" alt=""></img>
         </nav>
+       <div class="container my-4">
+    <div class="buscador-contenedor">
+        <form id="formularioBusqueda" role="search">
+            
+
+            <input
+                class="form-control"
+                type="search"
+                id="buscador"
+                placeholder="Buscar productos..."
+                aria-label="Buscar productos"
+                aria-autocomplete="list"
+                aria-controls="sugerencias"
+                autocomplete="off"
+            >
+        </form>
+
+                <div
+                    id="sugerencias"
+                    class="list-group sugerencias"
+                ></div>
+            </div>
+        </div>
     </header>
     <main><!--slider galeria visual de un par de productos-->
 
